@@ -1,0 +1,855 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+@tailwind base;@tailwind components;@tailwind utilities;
+:root{--bg:#060b12;--line:rgba(193,216,222,.15);--gold:#d9b879;--cyan:#83d9df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:#edf1f1;font-family:'DM Sans',sans-serif}button{font:inherit;color:inherit;cursor:pointer}button:disabled{opacity:.3;cursor:not-allowed}
+.header{height:76px;position:absolute;z-index:30;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:0 5.1vw;border-bottom:1px solid #ffffff14;background:linear-gradient(180deg,#03070cbf,transparent)}.brand{display:flex;align-items:center;gap:12px;background:none;border:0;text-align:left;font:600 10px 'DM Mono';letter-spacing:.17em}.brand-mark{width:35px;height:35px;display:grid;place-items:center;border:1px solid #c5a66d;color:var(--gold);font:25px Georgia}.brand small{display:block;font:8px 'DM Mono';letter-spacing:.2em;color:#84939b;margin-top:5px}.header nav{display:flex;gap:26px;align-items:center}.header nav button{background:none;border:0;font:9px 'DM Mono';letter-spacing:.14em;color:#c4d0d3}.header nav button:hover{color:var(--gold)}.header nav .nav-visualize{display:flex;align-items:center;gap:8px;border:1px solid #d9b87980;color:var(--gold);padding:11px 15px}
+.landing{position:relative;min-height:calc(100svh - 52px);padding:132px 10.2vw 0;overflow:hidden;background:#04080e;display:flex;flex-direction:column}.landing-bg{position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(3,8,14,.96) 0%,rgba(3,8,14,.72) 48%,rgba(3,8,14,.15) 100%),linear-gradient(0deg,#060b12 0%,transparent 40%),url('https://lirp.cdn-website.com/d0bcb56e/dms3rep/multi/opt/Fantasy%2Bcave-1920w.jpg');background-position:center;background-size:cover;filter:saturate(.72);transform:scale(1.025);animation:slowdrift 28s ease-in-out infinite alternate}.landing-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 72% 45%,#2fabc522,transparent 34%),radial-gradient(ellipse at 18% 78%,#d4ac6130,transparent 30%)}.landing-content{position:relative;z-index:2;width:min(730px,100%);padding:0 0 48px}.eyebrow,.micro{display:flex;align-items:center;gap:10px;font:9px 'DM Mono';letter-spacing:.2em;color:var(--gold)}.eyebrow i{display:inline-block;width:3px;height:3px;background:#d9b879;border-radius:50%}.landing h1{font:clamp(68px,8.6vw,122px)/.88 'Playfair Display',Georgia,serif;letter-spacing:-.055em;font-weight:500;margin:39px 0 19px}.landing h1 em,.explore-hero h1 em{font-weight:500;color:var(--gold)}.landing-content h2{font:italic 25px 'Playfair Display';color:#c8d5d8;margin:0 0 10px}.hero-copy{max-width:465px;color:#a5b4ba;font-size:14px;line-height:1.8;margin:0}.hero-actions{display:flex;gap:13px;margin-top:27px}.gold-button,.outline-button{min-height:48px;padding:0 20px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font:9px 'DM Mono';letter-spacing:.13em;transition:transform .22s,background .22s,border-color .22s}.gold-button{background:var(--gold);color:#101820;border:1px solid var(--gold)}.gold-button:hover{background:#f0d69d;transform:translateY(-2px);box-shadow:0 10px 30px #d9b87930}.outline-button{background:#0b1722b8;border:1px solid #91a5ae60;color:#dce5e7}.outline-button:hover{border-color:var(--cyan);color:var(--cyan)}.scroll-button{display:flex;align-items:center;gap:12px;margin-top:28px;background:none;border:0;padding:0;color:#8798a0;font:8px 'DM Mono';letter-spacing:.18em}.scroll-button svg{color:var(--gold);animation:bob 1.8s infinite}.profile-panel{position:relative;z-index:2;margin-top:auto;border-top:1px solid #ffffff29;padding:15px 0 20px}.profile-panel-head{display:flex;justify-content:space-between;color:var(--gold);font:8px 'DM Mono';letter-spacing:.18em;margin-bottom:13px}.profile-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 28px}.profile-cell{min-width:0;border-left:1px solid #ffffff21;padding-left:12px}.profile-cell small{display:block;color:#84959d;font:8px 'DM Mono';letter-spacing:.14em;margin-bottom:5px}.profile-cell b{display:block;font-size:11px;font-weight:500;color:#e2e9e9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.institution-line{display:flex;gap:24px;margin-top:13px;color:#8999a1;font:8px 'DM Mono';letter-spacing:.1em}
+.footer{height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 5.1vw;background:#05090f;border-top:1px solid #ffffff10;color:#74858e;font:8px 'DM Mono';letter-spacing:.15em}
+.journey{height:calc(100svh - 52px);min-height:680px;position:relative;overflow:hidden;background:#03080f}.journey-art{position:absolute;inset:0;background-image:url('https://lirp.cdn-website.com/d0bcb56e/dms3rep/multi/opt/Fantasy%2Bcave-1920w.jpg');background-size:cover;background-position:center;filter:saturate(.85);transform:scale(1.04);animation:slowdrift 35s ease-in-out infinite alternate}.journey-overlay{position:absolute;inset:0;background:linear-gradient(90deg,#03080de8, #03080d70 58%,#03080d20),linear-gradient(0deg,#050a11 0%,transparent 28%,#03080d55 100%)}.journey-top,.journey-center,.journey-bottom{position:absolute;z-index:2}.journey-top{top:26px;left:5vw;right:5vw;display:flex;align-items:center;justify-content:space-between}.quiet-button{display:inline-flex;align-items:center;gap:9px;background:#08121dcc;border:1px solid #ffffff2b;padding:11px 14px;color:#cbd6d9;font:8px 'DM Mono';letter-spacing:.13em}.quiet-button:hover:not(:disabled){border-color:var(--gold);color:var(--gold)}.chamber-count{font:9px 'DM Mono';letter-spacing:.16em;color:#a8b6bc}.chamber-count b{font-size:17px;color:var(--gold);margin:0 6px}.chamber-count span{color:#71828b}.chapter-select{position:relative}.chapter-menu{position:absolute;right:0;top:46px;width:270px;max-height:65vh;overflow:auto;background:#09131ef5;border:1px solid #ffffff24;box-shadow:0 18px 50px #0009;padding:8px;z-index:5}.chapter-menu button{width:100%;display:flex;gap:12px;text-align:left;padding:12px 10px;background:none;border:0;color:#aebbc0;font-size:11px}.chapter-menu button span{font:9px 'DM Mono';color:#83949d}.chapter-menu button:hover,.chapter-menu button.current{background:#ffffff0b;color:var(--gold)}.journey-center{inset:0;display:flex;align-items:center;padding:0 11vw}.chamber-copy{max-width:680px}.chamber-copy h1{font:clamp(48px,6.5vw,86px)/1.02 'Playfair Display';letter-spacing:-.045em;margin:24px 0 13px;text-shadow:0 6px 40px #000}.chamber-copy p{font:italic 21px 'Playfair Display';color:#c2d0d3;margin:0 0 29px}.journey-bottom{left:5vw;right:5vw;bottom:28px;display:flex;align-items:end;justify-content:space-between;gap:35px}.progress-area{width:min(430px,43vw)}.progress-caption{display:flex;justify-content:space-between;color:#9cabb1;font:8px 'DM Mono';letter-spacing:.16em;margin-bottom:10px}.progress-caption span:last-child{color:var(--gold)}.progress-line{height:2px;background:#ffffff35}.progress-line span{height:100%;display:block;background:var(--gold);box-shadow:0 0 12px var(--gold);transition:width .5s}.crystal-steps{display:flex;justify-content:space-between;margin-top:13px}.crystal-steps button{width:12px;height:12px;background:transparent;border:0;padding:3px}.crystal-steps button span{display:block;width:6px;height:6px;transform:rotate(45deg);background:#52616a;border:1px solid #9aa9af}.crystal-steps button.passed span{background:#9eb5b5;border-color:#9eb5b5}.crystal-steps button.active span{background:var(--gold);border-color:var(--gold);box-shadow:0 0 13px var(--gold);transform:scale(1.35) rotate(45deg)}.journey-actions{display:flex;gap:10px}.notes-drawer{position:absolute;z-index:8;right:0;top:0;bottom:0;width:min(690px,60vw);background:#08111df5;border-left:1px solid #ffffff22;box-shadow:-30px 0 90px #0009;display:flex;flex-direction:column;backdrop-filter:blur(18px)}.drawer-head{height:70px;flex-shrink:0;border-bottom:1px solid var(--line);padding:0 28px;display:flex;justify-content:space-between;align-items:center}.drawer-head div{display:flex;flex-direction:column;gap:5px}.drawer-head b{font:11px 'DM Mono';letter-spacing:.16em}.drawer-head button,.modal-close{background:none;border:0;color:#b9c7cb}.drawer-body{overflow:auto;padding:28px 32px 45px}.drawer-nav{display:flex;justify-content:space-between;border-top:1px solid var(--line);margin-top:38px;padding-top:18px}.drawer-nav button,.explore-pager button{background:#101d29;border:1px solid #ffffff22;padding:12px 15px;display:flex;gap:8px;align-items:center;font:8px 'DM Mono';letter-spacing:.12em}
+.explore{min-height:calc(100svh - 52px);padding:125px 8vw 85px;background:radial-gradient(ellipse at 78% 0%,#18303d 0%,#0a121c 42%,#060b12 78%)}.explore-hero{max-width:1180px;margin:0 auto 56px}.explore-hero h1{font:clamp(48px,6.7vw,82px)/1 'Playfair Display';letter-spacing:-.04em;margin:20px 0 12px}.explore-hero>p{color:#a8b6bc;font-size:14px;line-height:1.7;max-width:500px;margin:0 0 30px}.explore-hero .profile-grid{padding-top:23px;border-top:1px solid var(--line)}.explore-body{max-width:1180px;margin:auto;display:grid;grid-template-columns:250px minmax(0,1fr);gap:54px;align-items:start}.activity-list{position:sticky;top:22px;border-top:1px solid var(--line);padding-top:15px}.list-title{display:flex;justify-content:space-between;color:var(--gold);font:8px 'DM Mono';letter-spacing:.18em;margin-bottom:14px}.list-title span{color:#84949c}.activity-list>button{width:100%;display:flex;gap:13px;align-items:center;text-align:left;background:none;border:0;border-left:1px solid transparent;padding:12px 9px;color:#aab7bc;font-size:11px}.activity-list>button span{font:9px 'DM Mono';color:#71828b}.activity-list>button:hover,.activity-list>button.chosen{background:#ffffff08;border-left-color:var(--gold);color:#f0dfbc}.activity-list>button.chosen span{color:var(--gold)}.activity-list .enter-journey{margin-top:20px;border:1px solid #d9b87965;color:var(--gold);justify-content:center;font:8px 'DM Mono';letter-spacing:.1em;padding:14px 5px}.explore-content{min-width:0}.explore-content-top{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:28px}.explore-content-top p{font:italic 17px 'Playfair Display';color:#aebdc2;margin:8px 0 0}.explore-content-top>span{font:10px 'DM Mono';color:#82939b}
+.content-intro h2{font:clamp(29px,3.5vw,46px)/1.12 'Playfair Display';font-weight:500;letter-spacing:-.025em;margin:13px 0}.content-intro>p{font-size:13px;line-height:1.85;color:#a9b7bd;max-width:850px;margin:0}.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:27px 0}.info-card{border:1px solid #ffffff1b;background:linear-gradient(135deg,#ffffff09,#ffffff03);padding:18px 20px}.info-card h3,.section-heading h3{font:20px 'Playfair Display';font-weight:500;margin:9px 0 13px}.info-card ul{padding-left:17px;margin:0;color:#aab7bc;font-size:11px;line-height:1.9}.info-card li::marker{color:var(--gold)}.concepts{margin:26px 0 35px}.concepts>div{display:flex;flex-wrap:wrap;gap:7px;margin-top:11px}.concepts>div span{padding:8px 10px;border:1px solid #ffffff21;background:#ffffff05;color:#b8c6ca;font:8px 'DM Mono'}.section-heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:15px}.section-heading h3{margin:7px 0 0}.section-heading>small{font:8px 'DM Mono';letter-spacing:.1em;color:#7f9098}.text-slots,.question-section,.evidence{margin:35px 0}.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.text-slot{min-height:100px;border:1px solid #ffffff1b;background:#0c1721;padding:14px 16px}.text-slot>span{font:8px 'DM Mono';color:var(--gold)}.text-slot b{display:block;font:14px 'Playfair Display';font-weight:500;margin:7px 0}.text-slot p{font-size:10px;line-height:1.5;color:#7f9098;margin:0}.question-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.question-slot{border:1px solid #ffffff1c;background:linear-gradient(140deg,#ffffff09,#ffffff02);padding:16px;min-height:155px}.question-index{font:8px 'DM Mono';color:var(--gold)}.question-slot h4{font:16px 'Playfair Display';font-weight:500;margin:8px 0}.question-slot p,.answer-slot{font-size:10px;line-height:1.6;color:#9eacb2}.answer-slot{border-top:1px solid #ffffff17;padding-top:10px;margin-top:11px;color:#71858e}.evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.image-placeholder{min-height:170px;width:100%;border:1px dashed #68808b77;background:radial-gradient(ellipse at 50% 30%,#1b3542,#0b1620 74%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px;padding:20px;text-align:center;transition:.25s}.image-placeholder:hover{border-color:var(--gold);background:radial-gradient(ellipse at 50% 30%,#294b57,#0b1620 74%);transform:translateY(-2px)}.image-placeholder-icon{color:#9cb7bd}.image-placeholder b{font:16px 'Playfair Display';font-weight:500}.image-placeholder small{font:7px 'DM Mono';letter-spacing:.16em;color:var(--gold)}.image-placeholder-caption{font-size:9px;color:#7f929b}.explore-pager{display:flex;justify-content:space-between;margin-top:40px;padding-top:18px;border-top:1px solid var(--line)}.modal-backdrop{position:fixed;z-index:50;inset:0;background:#02060bdc;display:grid;place-items:center;padding:20px}.asset-modal{position:relative;max-width:440px;width:100%;background:#101d29;border:1px solid #ffffff25;padding:34px;box-shadow:0 25px 80px #000b}.asset-modal h3{font:27px 'Playfair Display';font-weight:500;margin:18px 0 10px}.asset-modal p{font-size:12px;line-height:1.8;color:#aab8be}.asset-modal code{color:var(--gold);font-size:10px}.asset-modal .gold-button{margin-top:10px}.modal-close{position:absolute;right:17px;top:17px}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}@keyframes slowdrift{from{transform:scale(1.025) translate3d(0,0,0)}to{transform:scale(1.09) translate3d(-1%,.5%,0)}}
+@media(max-width:850px){.landing{padding:120px 7vw 0}.landing h1{font-size:clamp(62px,11vw,96px)}.profile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.explore-body{grid-template-columns:1fr;gap:28px}.activity-list{position:static;display:flex;overflow-x:auto;gap:5px;border:0;padding:0 0 8px}.list-title{display:none}.activity-list>button{width:auto;min-width:max-content;border:1px solid var(--line);padding:10px}.activity-list .enter-journey{margin:0}.notes-drawer{width:min(700px,90vw)}}
+@media(max-width:560px){.header{height:65px;padding:0 17px}.brand{font-size:8px}.brand-mark{width:30px;height:30px}.header nav{gap:10px}.header nav button{font-size:7px}.header nav button:nth-child(1){display:none}.header nav .nav-visualize{padding:9px}.landing{padding:115px 7vw 0}.landing h1{font-size:clamp(55px,14vw,78px);margin-top:35px}.landing-content h2{font-size:21px}.hero-copy{font-size:12px}.hero-actions{flex-wrap:wrap}.gold-button,.outline-button{min-height:44px;padding:0 13px;font-size:8px}.profile-panel{padding:14px 0 18px}.profile-grid{gap:13px}.profile-cell b{font-size:10px}.institution-line{gap:12px;flex-wrap:wrap;font-size:7px}.profile-panel-head{font-size:7px}.footer{height:45px;padding:0 14px;font-size:6px}.footer span:nth-child(2){display:none}.journey{height:calc(100svh - 45px);min-height:680px}.journey-top{left:14px;right:14px;top:14px}.chamber-count{display:none}.quiet-button{font-size:7px;padding:9px}.journey-center{padding:0 8vw}.chamber-copy h1{font-size:clamp(42px,10vw,62px)}.chamber-copy p{font-size:18px}.journey-bottom{left:15px;right:15px;bottom:18px;display:block}.progress-area{width:100%;margin-bottom:16px}.journey-actions{justify-content:space-between}.journey-actions .gold-button{font-size:7px}.notes-drawer{width:100%}.drawer-body{padding:22px 17px 35px}.explore{padding:100px 6vw 60px}.explore-hero h1{font-size:51px}.content-grid,.field-grid,.question-grid,.evidence-grid{grid-template-columns:1fr}.content-intro h2{font-size:31px}.profile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.explore-content-top p{font-size:14px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* First-person crystal cavern */
+.immersive{height:calc(100svh - 52px);min-height:690px;isolation:isolate;perspective:1100px;background:#02060b;cursor:crosshair;--chamber-accent:#d9b879}.immersive .journey-top,.immersive .journey-bottom{z-index:20}.immersive-hud{pointer-events:none}.immersive-hud>*{pointer-events:auto}.cave-world{position:absolute;inset:-8%;overflow:hidden;transform-style:preserve-3d;transform:translateZ(-80px) scale(1.12) rotateY(var(--turn-x)) rotateX(var(--turn-y));transition:transform .7s cubic-bezier(.2,.7,.2,1);background:radial-gradient(ellipse at 50% 49%,#0b1d2b 0%,#06101b 30%,#02060c 72%)}.cave-world:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 47%,transparent 0 15%,#02060b99 47%,#010307 100%),linear-gradient(180deg,#010307 0%,transparent 22%,transparent 68%,#010307 100%);z-index:3}.cave-ceiling{position:absolute;left:-8%;right:-8%;top:-18%;height:55%;background:linear-gradient(180deg,#010307 0%,#030a12 62%,#07121b 100%);clip-path:polygon(0 0,100% 0,100% 65%,93% 58%,87% 73%,80% 53%,73% 69%,66% 48%,60% 65%,53% 49%,45% 67%,37% 48%,30% 69%,22% 50%,14% 70%,7% 52%,0 68%);filter:drop-shadow(0 22px 24px #000)}.cave-floor{position:absolute;left:-10%;right:-10%;bottom:-30%;height:58%;background:linear-gradient(0deg,#010307 0%,#06101a 70%,#0a1722 100%);clip-path:polygon(0 30%,8% 20%,18% 31%,28% 12%,39% 29%,50% 11%,62% 30%,73% 14%,85% 28%,93% 18%,100% 29%,100% 100%,0 100%)}.cave-tunnel{position:absolute;left:25%;right:25%;top:17%;bottom:8%;background:radial-gradient(ellipse at 50% 48%,#17364a55 0%,#0b1d2b55 24%,transparent 68%);clip-path:polygon(50% 0,83% 13%,100% 45%,82% 100%,18% 100%,0 45%,17% 13%);filter:blur(5px)}.cave-light-core{position:absolute;left:50%;top:45%;width:5px;height:5px;border-radius:50%;background:#f3e9ce;transform:translate(-50%,-50%);box-shadow:0 0 9px 4px #e9d6a8,0 0 34px 13px #a9d9f355,0 0 100px 40px #3b91c533;z-index:4;animation:corepulse 3.5s ease-in-out infinite}.cave-light-halo{position:absolute;left:50%;top:45%;width:180px;height:180px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,#c5eaff14 0%,#9edbff08 28%,transparent 70%);filter:blur(13px);z-index:3}.cave-rock{position:absolute;display:block;width:clamp(22px,4vw,74px);height:clamp(22px,4vw,74px);background:linear-gradient(145deg,#122432,#03070d 72%);clip-path:polygon(20% 0,83% 9%,100% 48%,72% 100%,12% 79%,0 30%);opacity:.66;filter:drop-shadow(0 9px 12px #000);animation:rockfloat 9s ease-in-out infinite alternate}.rock-1,.rock-4{width:95px;height:55px;opacity:.42}.rock-2,.rock-5{width:36px;height:80px;opacity:.6}.rock-3{background:linear-gradient(145deg,#172d3b,#04090f 75%)}.cave-dust{position:absolute;width:2px;height:2px;border-radius:50%;background:#c3ddeb;opacity:.5;box-shadow:0 0 8px #a8d9f4;animation:dustfloat 8s ease-in-out infinite alternate}.cave-content-plane{position:absolute;inset:0;z-index:8;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.7,.2,1);pointer-events:none}.cave-side{position:absolute;top:15%;bottom:18%;width:min(35vw,450px);display:flex;flex-direction:column;justify-content:center;gap:clamp(12px,2.5vh,28px);transform-style:preserve-3d}.cave-side.left-side{left:4.5%;align-items:flex-start}.cave-side.right-side{right:4.5%;align-items:flex-end}.cave-card{position:relative;width:min(100%,390px);min-height:150px;padding:clamp(16px,1.8vw,25px);background:linear-gradient(145deg,#0b1b29e8,#050b12e8 75%);border:1px solid #9dcce52e;box-shadow:0 20px 60px #0009,inset 0 1px #d7efff12;backdrop-filter:blur(12px);transform-style:preserve-3d;pointer-events:auto;overflow:hidden}.cave-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--chamber-accent);box-shadow:0 0 18px var(--chamber-accent)}.cave-card.left{transform-origin:left center}.cave-card.right{transform-origin:right center}.cave-card:nth-child(2){width:88%;min-height:130px}.cave-card:nth-child(3){width:78%;min-height:110px}.card-kicker{display:block;color:var(--chamber-accent);font:8px 'DM Mono';letter-spacing:.18em;margin-bottom:12px}.cave-card h3{font:clamp(18px,1.8vw,25px)/1.12 'Playfair Display',Georgia,serif;color:#edf3f4;margin:0 0 10px;letter-spacing:-.02em}.cave-card p{white-space:pre-line;color:#aebdc4;font-size:clamp(10px,.85vw,12px);line-height:1.7;margin:0;max-height:135px;overflow:auto}.card-index{position:absolute;right:14px;top:13px;color:#607783;font:8px 'DM Mono'}.cave-card-media{min-height:0;max-height:clamp(110px,24vh,260px);height:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;margin:-8px -8px 15px;background:rgba(3,12,20,.72);border:1px solid #9bcce54a;color:#82b6d0;overflow:hidden}.cave-card-media span{font:8px 'DM Mono';letter-spacing:.18em}.cave-card-media img{display:block;width:100%;height:auto;max-height:clamp(110px,24vh,260px);object-fit:contain;object-position:center;background:#02070c}.cave-title-float{position:absolute;z-index:10;left:50%;top:47%;width:min(24vw,290px);transform:translate(-50%,-50%);text-align:center;pointer-events:none;text-shadow:0 4px 25px #000}.cave-title-float .eyebrow{justify-content:center;font-size:7px}.cave-title-float h1{font:clamp(23px,2.4vw,36px)/1.08 'Playfair Display',Georgia,serif;margin:12px 0 7px;color:#edf2f3}.cave-title-float p{font:italic 12px 'Playfair Display';color:#b9c9cf;margin:0}.cave-vanishing-point{position:absolute;z-index:5;left:50%;top:45%;width:1px;height:1px;pointer-events:none}.cave-vanishing-point span{position:absolute;width:2px;height:2px;border-radius:50%;background:#f4e9cb;box-shadow:0 0 7px 3px #f1e0bb,0 0 28px 11px #9ddfff66;animation:corepulse 3s infinite}.stage-progress{display:flex;align-items:center;gap:14px;margin-top:12px}.stage-progress>span,.stage-progress small{font:7px 'DM Mono';letter-spacing:.12em;color:#83959e;white-space:nowrap}.stage-progress>div{display:flex;gap:9px}.stage-progress button{background:none;border:0;padding:3px}.stage-progress button i{display:block;width:5px;height:5px;border:1px solid #7e949f;border-radius:50%}.stage-progress button.passed i{background:#9bb9bd;border-color:#9bb9bd}.stage-progress button.active i{background:var(--gold);border-color:var(--gold);box-shadow:0 0 12px var(--gold);transform:scale(1.7)}.mouse-hint{position:absolute;z-index:19;bottom:105px;left:50%;transform:translateX(-50%);display:flex;gap:11px;align-items:center;color:#71848e;font:7px 'DM Mono';letter-spacing:.1em;white-space:nowrap;pointer-events:none}.mouse-hint i{height:3px;width:3px;border-radius:50%;background:var(--gold)}.field-notes-trigger{position:absolute;z-index:22;right:5vw;top:88px;display:flex;gap:8px;align-items:center;background:#07121dcc;border:1px solid #b9d6e52b;padding:10px 13px;color:#bdcbd0;font:8px 'DM Mono';letter-spacing:.12em}.field-notes-trigger:hover{border-color:var(--chamber-accent);color:var(--chamber-accent)}.immersive .notes-drawer{z-index:40;cursor:auto}.immersive.is-moving .cave-world{transform:translateZ(-160px) scale(1.2) rotateY(var(--turn-x)) rotateX(var(--turn-y));filter:brightness(1.22)}.immersive.is-moving .cave-light-core{transform:translate(-50%,-50%) scale(1.65);box-shadow:0 0 15px 7px #e9d6a8,0 0 60px 25px #a9d9f377}.immersive.is-moving .cave-content-plane{transform:translateZ(-180px) scale(.82)!important;opacity:.9}
+@keyframes corepulse{0%,100%{opacity:.65;filter:brightness(.9)}50%{opacity:1;filter:brightness(1.5)}}@keyframes rockfloat{from{translate:0 0}to{translate:0 -12px}}@keyframes dustfloat{from{transform:translate3d(-4px,8px,0);opacity:.18}to{transform:translate3d(8px,-14px,0);opacity:.65}}
+@media(max-width:900px){.cave-side{width:38vw}.cave-side.left-side{left:2%}.cave-side.right-side{right:2%}.cave-card{padding:15px;min-height:130px}.cave-title-float{width:21vw}.cave-title-float h1{font-size:22px}.stage-progress small{display:none}}
+@media(max-width:650px){.immersive{height:auto;min-height:calc(100svh - 52px);overflow:hidden}.immersive .journey-top{top:15px;left:4vw;right:4vw}.immersive .journey-top>.quiet-button{padding:9px;font-size:7px}.chamber-count{font-size:7px}.chamber-count b{font-size:14px}.chamber-count small{display:none}.chapter-select .quiet-button{font-size:0;padding:9px}.chapter-select .quiet-button svg{width:15px}.cave-side{top:17%;bottom:20%;width:43vw;gap:12px}.cave-side.left-side{left:2%}.cave-side.right-side{right:2%}.cave-card{min-height:125px;padding:12px;background:#07121deF}.cave-card:nth-child(2),.cave-card:nth-child(3){width:100%;min-height:105px}.cave-card h3{font-size:16px}.cave-card p{font-size:9px;max-height:90px}.card-kicker{font-size:6px}.cave-title-float{top:48%;width:18vw}.cave-title-float h1{font-size:16px}.cave-title-float p{font-size:9px}.cave-title-float .eyebrow{font-size:5px}.field-notes-trigger{top:68px;right:4vw;font-size:7px;padding:8px}.journey-bottom{left:4vw;right:4vw;bottom:17px;align-items:flex-end;gap:8px}.progress-area{width:44vw}.progress-caption{font-size:6px}.stage-progress{gap:5px}.stage-progress>span,.stage-progress small{font-size:5px}.stage-progress>div{gap:3px}.journey-actions{gap:5px}.journey-actions .quiet-button,.journey-actions .gold-button{padding:10px 8px;font-size:6px;min-height:38px}.mouse-hint{bottom:94px;font-size:5px;gap:6px}.notes-drawer{width:100%;max-width:none}.cave-world{inset:-4%}}
+@media(prefers-reduced-motion:reduce){.cave-world,.cave-content-plane,.cave-rock,.cave-dust,.cave-light-core{animation:none!important;transition:none!important}}
+@media(min-width:651px){.immersive .journey-top{top:88px}}
+
+/* MINECART EXPEDITION — physical tunnel, rails and wall-mounted exhibits */
+.immersive{background:#020509;min-height:700px;cursor:crosshair;--track-speed:1.05s}
+.immersive .journey-top{top:88px;left:5vw;right:5vw;z-index:28;pointer-events:none}
+.immersive .journey-top>*{pointer-events:auto}
+.chapter-select{display:flex;align-items:center;gap:8px}
+.chapter-select .quiet-button{white-space:nowrap}
+.immersive .cave-world{inset:-5% -8% -8%;overflow:hidden;perspective:1200px;background:radial-gradient(ellipse at 50% 43%,#173246 0%,#0b1a27 22%,#050c14 52%,#010307 83%);transform:translateZ(-40px) scale(1.06) rotateY(var(--turn-x)) rotateX(var(--turn-y));transform-origin:50% 50%;transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .8s}
+.immersive .cave-world:before{content:"";position:absolute;inset:0;z-index:12;pointer-events:none;background:radial-gradient(ellipse at 50% 46%,transparent 0 17%,#02060a33 43%,#010307d9 100%),linear-gradient(90deg,#0103079c,transparent 22%,transparent 78%,#0103079c),linear-gradient(180deg,#010307b8 0%,transparent 23%,transparent 60%,#010307c9 100%)}
+.cave-ceiling{top:-18%;height:53%;left:-5%;right:-5%;z-index:2;background:radial-gradient(ellipse at 50% 100%,#162c3a 0%,#07111b 48%,#010307 78%);clip-path:polygon(0 0,100% 0,100% 72%,92% 62%,85% 79%,78% 58%,69% 76%,61% 57%,54% 76%,47% 58%,39% 77%,30% 55%,22% 76%,13% 58%,6% 75%,0 62%);filter:drop-shadow(0 28px 32px #000)}
+.cave-wall{position:absolute;top:8%;bottom:2%;width:48%;z-index:3;pointer-events:none;filter:drop-shadow(0 0 35px #000)}
+.cave-wall-left{left:-5%;clip-path:polygon(0 0,100% 12%,83% 22%,67% 36%,55% 53%,43% 70%,30% 88%,0 100%);background:linear-gradient(90deg,#010307 0%,#07121b 43%,#102330 78%,#06101a 100%);border-right:1px solid #9dc8db18}
+.cave-wall-right{right:-5%;clip-path:polygon(100% 0,0 12%,17% 22%,33% 36%,45% 53%,57% 70%,70% 88%,100% 100%);background:linear-gradient(270deg,#010307 0%,#07121b 43%,#102330 78%,#06101a 100%);border-left:1px solid #9dc8db18}
+.cave-wall:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(155deg,transparent 0 70px,#172b38 71px 73px,transparent 74px 128px),radial-gradient(ellipse at 70% 55%,#18354888,transparent 58%);opacity:.52}
+.cave-floor{left:-9%;right:-9%;bottom:-35%;height:78%;z-index:4;clip-path:polygon(0 0,12% 7%,25% 17%,39% 25%,50% 28%,61% 25%,75% 17%,88% 7%,100% 0,100% 100%,0 100%);background:radial-gradient(ellipse at 50% 0%,#1b3442 0%,#0b1924 28%,#03080e 68%,#010205 100%);transform:perspective(480px) rotateX(7deg);box-shadow:inset 0 30px 80px #000}
+.cave-floor:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(168deg,transparent 0 53px,#31445212 54px 56px,transparent 57px 105px),linear-gradient(90deg,#0008,transparent 32%,transparent 68%,#0008)}
+.cave-tunnel{left:28%;right:28%;top:18%;bottom:15%;z-index:5;background:radial-gradient(ellipse at 50% 45%,#9bd8f21c 0%,#28516a1c 24%,transparent 72%);clip-path:polygon(50% 0,78% 10%,100% 43%,83% 100%,17% 100%,0 43%,22% 10%);filter:blur(2px)}
+.mine-track-bed{position:absolute;z-index:7;left:27%;right:27%;top:43%;bottom:-27%;transform:perspective(440px) rotateX(65deg);transform-origin:50% 0%;background:linear-gradient(90deg,#020509 0%,#111c23 17%,#27343a 49%,#111c23 83%,#020509 100%);box-shadow:0 0 55px #000,inset 0 0 45px #000;overflow:hidden}
+.mine-track-bed:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(180deg,transparent 0 29px,#6c5540 30px 39px,#1a1c1d 40px 43px,transparent 44px 65px);opacity:.92;animation:sleeper-flow var(--track-speed) linear infinite}
+.mine-track-bed:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 0 9%,#0008 10%,transparent 17%,transparent 83%,#0008 90%,transparent 91%),linear-gradient(180deg,#8db2c322,transparent 40%)}
+.track-rail{position:absolute;top:0;bottom:0;width:2.7%;z-index:3;background:linear-gradient(90deg,#161c20,#a7a9a0 38%,#4d5558 58%,#101519);border-left:1px solid #d4d5c866;border-right:1px solid #000;box-shadow:0 0 10px #9dc4d222}
+.track-rail-left{left:13%}.track-rail-right{right:13%}
+.track-sleeper{display:none}
+.minecart-nose{position:absolute;z-index:10;left:50%;bottom:-3%;width:30%;height:12%;transform:translateX(-50%);background:linear-gradient(180deg,#18252d 0%,#080e14 38%,#020407 100%);clip-path:polygon(13% 0,87% 0,100% 100%,0 100%);border-top:2px solid #9ca9a55c;filter:drop-shadow(0 -10px 18px #000);pointer-events:none}
+.minecart-nose:before{content:"";position:absolute;left:8%;right:8%;top:0;height:5px;background:linear-gradient(90deg,transparent,#a4b4b4aa,transparent);box-shadow:0 0 15px #a3d8ee44}
+.cave-light-core{top:49%;width:4px;height:4px;z-index:9;box-shadow:0 0 8px 4px #f3e8d2,0 0 28px 12px #c3e8ff77,0 0 95px 42px #5bb4e044}
+.cave-light-halo{top:49%;z-index:8;width:240px;height:240px;background:radial-gradient(circle,#e0f3ff16 0%,#8dcdf20b 35%,transparent 72%)}
+.cave-content-plane{z-index:11;inset:0;perspective:1000px;transform-style:preserve-3d;pointer-events:none}
+.cave-side{top:23%;bottom:22%;width:min(31vw,410px);justify-content:space-evenly;gap:clamp(10px,2vh,22px);transform-style:preserve-3d}
+.cave-side.left-side{left:2.5%;align-items:flex-start;perspective:900px}
+.cave-side.right-side{right:2.5%;align-items:flex-end;perspective:900px}
+.cave-card{width:min(100%,370px);min-height:130px;padding:clamp(14px,1.45vw,21px);border:5px solid #26343c;border-image:linear-gradient(135deg,#8d7957,#34434c 35%,#111a22 65%,#746344) 1;background:linear-gradient(145deg,#0c1b27f2,#03080ff5 80%);box-shadow:0 18px 45px #000c,0 0 0 1px #d8c18a22,inset 0 0 0 1px #a9c7d31c,inset 0 0 24px #0b2938;backdrop-filter:blur(8px);transform-style:preserve-3d;pointer-events:auto;overflow:hidden}
+.cave-card:after{content:"";position:absolute;inset:5px;border:1px solid #c3b28a35;pointer-events:none}
+.cave-card.left{transform-origin:left center;transform:rotateY(13deg) rotateZ(1deg)}
+.cave-card.right{transform-origin:right center;transform:rotateY(-13deg) rotateZ(-1deg)}
+.cave-card:nth-child(2){width:88%;min-height:120px}.cave-card:nth-child(3){width:78%;min-height:105px}
+.cave-card-media{border:1px dashed #a5c9d34d;background:linear-gradient(135deg,#142d3b,#050d15 75%);box-shadow:inset 0 0 35px #4c9ab21a}
+.cave-card h3{font-size:clamp(17px,1.55vw,23px)}
+.cave-card p{font-size:clamp(9px,.78vw,11px);max-height:112px}
+.cave-title-float{z-index:14;top:30%;left:50%;width:min(25vw,310px);padding:12px 16px;background:linear-gradient(180deg,#02070b9c,transparent);text-align:center;pointer-events:none}
+.cave-title-float h1{font-size:clamp(20px,2vw,29px);margin:8px 0 5px}
+.cave-title-float p{font-size:11px}
+.immersive .journey-bottom{z-index:25;bottom:18px;align-items:flex-end}
+.immersive .progress-area{padding:10px 13px;background:#03080dcc;border:1px solid #d6e5e814;backdrop-filter:blur(8px)}
+.immersive .journey-actions{padding:5px;background:#03080db8;border:1px solid #d6e5e814;backdrop-filter:blur(8px)}
+.immersive .journey-actions button{min-height:43px}
+.mouse-hint{bottom:93px;z-index:18;text-shadow:0 2px 8px #000}
+.immersive .notes-drawer{z-index:45;top:0;bottom:0;width:min(570px,44vw);max-width:100%;background:#07111df7}
+.immersive .drawer-head{height:64px;padding:0 22px}
+.immersive .drawer-body{padding:20px 22px 35px}
+.immersive .chapter-menu{z-index:35}
+.immersive .is-moving .cave-content-plane{transition:transform var(--track-speed) cubic-bezier(.2,.7,.2,1),opacity var(--track-speed);transform:translateZ(-240px) scale(.68)!important;opacity:.25}
+.immersive.is-moving .cave-world{filter:brightness(1.22) saturate(1.08)}
+.immersive.moving-forward .mine-track-bed{animation:track-forward var(--track-speed) cubic-bezier(.2,.7,.2,1)}
+.immersive.moving-backward .mine-track-bed{animation:track-backward var(--track-speed) cubic-bezier(.2,.7,.2,1)}
+.immersive.moving-forward .cave-wall-left{animation:wall-forward var(--track-speed) ease-in-out}
+.immersive.moving-forward .cave-wall-right{animation:wall-forward var(--track-speed) ease-in-out}
+.immersive.moving-forward .cave-floor{animation:floor-forward var(--track-speed) ease-in-out}
+.immersive.moving-forward .cave-light-core{animation:light-approach var(--track-speed) ease-in-out}
+.immersive.moving-backward .cave-wall-left,.immersive.moving-backward .cave-wall-right{animation:wall-backward var(--track-speed) ease-in-out}
+.immersive.moving-backward .cave-floor{animation:floor-backward var(--track-speed) ease-in-out}
+.immersive.moving-backward .cave-light-core{animation:light-retreat var(--track-speed) ease-in-out}
+@keyframes sleeper-flow{from{background-position:0 0}to{background-position:0 65px}}
+@keyframes track-forward{0%{background-position:0 0;transform:perspective(440px) rotateX(65deg) translateY(0)}100%{background-position:0 170px;transform:perspective(440px) rotateX(65deg) translateY(9%)} }
+@keyframes track-backward{0%{background-position:0 170px;transform:perspective(440px) rotateX(65deg) translateY(9%)}100%{background-position:0 0;transform:perspective(440px) rotateX(65deg) translateY(0)}}
+@keyframes wall-forward{0%{filter:brightness(.7);transform:scale(1)}55%{filter:brightness(1.35);transform:scale(1.06)}100%{filter:brightness(1);transform:scale(1)}}
+@keyframes wall-backward{0%{filter:brightness(1.3);transform:scale(1.05)}100%{filter:brightness(1);transform:scale(1)}}
+@keyframes floor-forward{0%{background-position:0 0;filter:brightness(.8)}100%{background-position:0 90px;filter:brightness(1.15)}}
+@keyframes floor-backward{0%{background-position:0 90px}100%{background-position:0 0}}
+@keyframes light-approach{0%{transform:translate(-50%,-50%) scale(1)}65%{transform:translate(-50%,-50%) scale(2.2)}100%{transform:translate(-50%,-50%) scale(1.3)}}
+@keyframes light-retreat{0%{transform:translate(-50%,-50%) scale(1.6)}100%{transform:translate(-50%,-50%) scale(1)}}
+@media(max-width:900px){.cave-side{width:34vw}.cave-card{border-width:3px;padding:13px}.cave-title-float{top:31%;width:23vw}.mine-track-bed{left:25%;right:25%}}
+@media(max-width:650px){.immersive{height:calc(100svh - 45px);min-height:720px}.immersive .journey-top{top:82px;left:3vw;right:3vw}.chapter-select{gap:4px}.chapter-select .quiet-button{font-size:6px;padding:8px}.cave-side{top:25%;bottom:25%;width:39vw;gap:8px}.cave-side.left-side{left:1%}.cave-side.right-side{right:1%}.cave-card{min-height:108px;padding:9px;border-width:2px}.cave-card:nth-child(2),.cave-card:nth-child(3){min-height:92px}.cave-card h3{font-size:13px}.cave-card p{font-size:8px;max-height:68px}.card-kicker{font-size:5px;margin-bottom:7px}.cave-title-float{top:33%;width:23vw;padding:5px}.cave-title-float h1{font-size:13px}.cave-title-float p{font-size:8px}.mine-track-bed{left:16%;right:16%;top:48%;bottom:-24%}.minecart-nose{width:38%;height:8%}.cave-wall{width:54%}.immersive .journey-bottom{bottom:12px;left:3vw;right:3vw;gap:8px}.immersive .progress-area{width:39vw;padding:7px}.immersive .journey-actions{gap:4px}.immersive .journey-actions button{font-size:6px;padding:8px 7px;min-height:36px}.stage-progress{gap:4px}.stage-progress>span,.stage-progress small{display:none}.stage-progress>div{gap:3px}.mouse-hint{bottom:88px;font-size:5px}.immersive .notes-drawer{width:100%}.cave-light-core{top:51%}}
+@media(prefers-reduced-motion:reduce){.mine-track-bed:before{animation:none}.immersive.moving-forward .mine-track-bed,.immersive.moving-backward .mine-track-bed,.immersive.moving-forward .cave-wall-left,.immersive.moving-forward .cave-wall-right,.immersive.moving-forward .cave-floor,.immersive.moving-forward .cave-light-core,.immersive.moving-backward .cave-wall-left,.immersive.moving-backward .cave-wall-right,.immersive.moving-backward .cave-floor,.immersive.moving-backward .cave-light-core{animation:none!important}}
+.immersive.moving-forward .mine-track-bed:before{animation-duration:.34s;animation-direction:normal}
+.immersive.moving-backward .mine-track-bed:before{animation-duration:.34s;animation-direction:reverse}
+.immersive .notes-drawer{top:76px;bottom:0;width:min(520px,38vw)}
+@media(max-width:650px){.immersive .notes-drawer{top:65px;bottom:0;width:100%}}
+
+/* Minecart v5: natural cave relief, larger wall exhibits and first-person cart */
+.immersive .cave-world{background:radial-gradient(ellipse at 50% 43%,#1a3444 0%,#0b1a26 27%,#040a11 58%,#010205 88%)}
+.cave-ceiling{background:radial-gradient(ellipse at 50% 100%,#243642 0%,#101c26 34%,#050b12 72%,#010307 100%),repeating-linear-gradient(112deg,transparent 0 55px,#26354055 56px 59px,transparent 60px 112px);filter:drop-shadow(0 25px 25px #000);}
+.cave-wall{width:53%;top:4%;bottom:-2%;filter:drop-shadow(0 0 28px #000) contrast(1.12);background-color:#0b141d;}
+.cave-wall-left{left:-8%;clip-path:polygon(0 0,100% 4%,93% 13%,98% 22%,82% 31%,88% 42%,68% 52%,76% 65%,52% 74%,57% 86%,27% 94%,0 100%);background:radial-gradient(ellipse at 84% 24%,#35434a 0%,#172630 22%,transparent 50%),radial-gradient(ellipse at 70% 67%,#25343b 0%,#101b23 28%,transparent 56%),radial-gradient(ellipse at 20% 45%,#111b24 0%,#03070d 60%),linear-gradient(100deg,#010307 0%,#101c25 54%,#26333a 84%,#080f16 100%);}
+.cave-wall-right{right:-8%;clip-path:polygon(100% 0,0 4%,7% 13%,2% 22%,18% 31%,12% 42%,32% 52%,24% 65%,48% 74%,43% 86%,73% 94%,100% 100%);background:radial-gradient(ellipse at 16% 24%,#35434a 0%,#172630 22%,transparent 50%),radial-gradient(ellipse at 30% 67%,#25343b 0%,#101b23 28%,transparent 56%),radial-gradient(ellipse at 80% 45%,#111b24 0%,#03070d 60%),linear-gradient(260deg,#010307 0%,#101c25 54%,#26333a 84%,#080f16 100%);}
+.cave-wall:before{content:"";position:absolute;inset:-2%;opacity:.94;background:radial-gradient(ellipse 20% 12% at 76% 17%,#3b4a50 0%,#1b2931 48%,#070d13 78%,transparent 80%),radial-gradient(ellipse 16% 11% at 60% 38%,#34434a 0%,#18252d 48%,#050a10 78%,transparent 80%),radial-gradient(ellipse 24% 15% at 82% 61%,#293940 0%,#121e26 50%,#050a10 78%,transparent 80%),radial-gradient(ellipse 18% 13% at 53% 83%,#39464a 0%,#17242b 52%,#050a10 78%,transparent 80%),repeating-linear-gradient(162deg,transparent 0 43px,#3c4a5030 44px 48px,transparent 49px 94px);filter:drop-shadow(0 12px 10px #000);}
+.cave-wall:after{background:repeating-linear-gradient(154deg,transparent 0 34px,#0007 35px 38px,transparent 39px 82px),repeating-linear-gradient(24deg,transparent 0 70px,#8da0a012 71px 73px,transparent 74px 126px),radial-gradient(ellipse at 70% 55%,#35505b55,transparent 58%);opacity:.7;mix-blend-mode:screen;}
+.cave-floor{background:radial-gradient(ellipse at 50% 0%,#34414a 0%,#18252e 22%,#0a131b 55%,#020509 100%),repeating-linear-gradient(12deg,transparent 0 42px,#87939a12 43px 45px,transparent 46px 91px);}
+.cave-floor:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 14% 28%,#52606855 0 3%,transparent 9%),radial-gradient(ellipse at 28% 48%,#3a454b66 0 4%,transparent 10%),radial-gradient(ellipse at 76% 35%,#48545b55 0 4%,transparent 11%),radial-gradient(ellipse at 88% 58%,#35434a88 0 5%,transparent 12%),radial-gradient(ellipse at 47% 70%,#29384066 0 4%,transparent 10%);}
+/* Keep the rails narrow and central, with a clear rocky shoulder on either side. */
+.mine-track-bed{left:37%;right:37%;top:44%;bottom:-29%;background:linear-gradient(90deg,#05090d,#17232b 22%,#2a3439 50%,#17232b 78%,#05090d);box-shadow:0 0 35px #000,inset 0 0 35px #000;}
+.track-rail{width:3.4%;background:linear-gradient(90deg,#11171b,#c0c0b5 34%,#666d70 56%,#10161a);}
+.track-rail-left{left:19%}.track-rail-right{right:19%}
+.mine-track-bed:before{background:repeating-linear-gradient(180deg,transparent 0 31px,#76583c 32px 40px,#211b16 41px 44px,transparent 45px 68px);}
+.cave-rock{background:linear-gradient(145deg,#46525a 0%,#1d2b34 28%,#0a1118 70%,#020509 100%);border:1px solid #8c9aa01c;filter:drop-shadow(0 12px 13px #000);opacity:.72;}
+.rock-1,.rock-4{width:clamp(90px,12vw,190px);height:clamp(50px,7vw,105px);opacity:.64;}
+.rock-2,.rock-5{width:clamp(34px,5vw,76px);height:clamp(72px,9vw,138px);opacity:.7;}
+.rock-3{background:linear-gradient(145deg,#52616a,#1a2b35 42%,#03070d 85%)}
+.cave-content-plane{perspective:1450px;}
+.cave-side{top:18%;bottom:22%;width:min(39vw,590px);gap:clamp(18px,3vh,34px);justify-content:center;}
+.cave-side.left-side{left:1.5%;align-items:flex-start;}
+.cave-side.right-side{right:1.5%;align-items:flex-end;}
+.cave-card{width:min(100%,540px);min-height:225px;padding:clamp(22px,2.1vw,34px);border-width:6px;background:linear-gradient(145deg,#101f2bf5,#03080ff7 82%);box-shadow:0 28px 75px #000e,0 0 35px #9ccce51b,inset 0 0 0 1px #c4d8dc20,inset 0 0 34px #102c3b;}
+.cave-card:nth-child(2){width:91%;min-height:190px}.cave-card:nth-child(3){width:82%;min-height:165px}
+.cave-card h3{font-size:clamp(23px,2.15vw,34px);margin-bottom:14px;}
+.cave-card p{font-size:clamp(12px,.95vw,15px);line-height:1.75;max-height:190px;}
+.cave-card-media{height:clamp(135px,19vh,220px);margin:-10px -10px 19px;}
+.cave-card.left{transform-origin:center center;}
+.cave-card.right{transform-origin:center center;}
+.cave-card:before{content:"";position:absolute;inset:5px;border:1px solid #d5c08a3d;pointer-events:none;}
+/* Wooden cart rim and hands sit in the foreground, below the navigation HUD. */
+.first-person-cart{position:absolute;z-index:16;left:0;right:0;bottom:-1.5%;height:25%;pointer-events:none;filter:drop-shadow(0 -15px 24px #000b);transform-origin:50% 100%;animation:cart-rumble 2.8s ease-in-out infinite;}
+.first-person-cart svg{width:100%;height:100%;display:block;overflow:visible;}
+.immersive.is-moving .first-person-cart{animation:cart-travel .38s ease-in-out infinite alternate;}
+@keyframes cart-rumble{0%,100%{transform:translateY(0) rotate(.08deg)}50%{transform:translateY(1px) rotate(-.08deg)}}
+@keyframes cart-travel{from{transform:translateY(1px) rotate(.12deg)}to{transform:translateY(-2px) rotate(-.12deg)}}
+.immersive .journey-bottom{z-index:27;}
+@media(max-width:900px){.mine-track-bed{left:34%;right:34%;}.cave-side{width:40vw}.cave-card{min-height:190px}.first-person-cart{height:22%;}}
+@media(max-width:650px){.mine-track-bed{left:32%;right:32%;top:49%;bottom:-26%;}.track-rail-left{left:18%}.track-rail-right{right:18%}.cave-side{top:25%;bottom:29%;width:43vw;gap:10px}.cave-card{min-height:125px;padding:10px;border-width:3px}.cave-card:nth-child(2),.cave-card:nth-child(3){min-height:110px}.cave-card h3{font-size:15px}.cave-card p{font-size:9px;max-height:80px}.cave-card-media{height:82px}.first-person-cart{height:17%;bottom:0}.immersive .journey-bottom{z-index:28}}
+@media(prefers-reduced-motion:reduce){.first-person-cart,.immersive.is-moving .first-person-cart{animation:none!important}}
+
+/* Minecart v6: photographic cavern surfaces and floating holographic exhibits */
+.immersive .cave-world{
+  background-color:#03070b;
+  background-image:
+    linear-gradient(90deg,rgba(1,4,8,.68) 0%,rgba(2,7,12,.12) 28%,rgba(2,7,12,.08) 72%,rgba(1,4,8,.58) 100%),
+    linear-gradient(0deg,rgba(1,4,8,.72) 0%,transparent 35%,rgba(1,4,8,.2) 100%),
+    url('/assets/cave-reference-tunnel.jpg');
+  background-size:cover;
+  background-position:center 52%;
+  filter:saturate(.78) contrast(1.08);
+}
+.immersive .cave-world:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:3;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 50% 46%,transparent 0 18%,rgba(1,4,8,.12) 52%,rgba(1,4,8,.66) 100%),
+    linear-gradient(90deg,rgba(1,4,8,.28),transparent 24%,transparent 76%,rgba(1,4,8,.28));
+}
+.immersive .cave-world:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:url('/assets/cave-reference-chamber.jpg') center 38%/cover no-repeat;
+  opacity:.105;
+  mix-blend-mode:soft-light;
+  mask-image:linear-gradient(180deg,#000 0%,transparent 72%);
+}
+/* The supplied cave photograph provides the natural walls, ceiling and floor. */
+.immersive .cave-ceiling,
+.immersive .cave-wall,
+.immersive .cave-floor,
+.immersive .cave-tunnel,
+.immersive .cave-rock{display:none!important}
+.immersive .cave-dust{z-index:4;opacity:.38;mix-blend-mode:screen}
+.immersive .cave-light-core{z-index:5;top:45%;}
+.immersive .cave-light-halo{z-index:4;top:45%;}
+
+/* Equal-sized projected holograms: no heavy metallic picture frames. */
+.immersive .cave-side{
+  top:19%;
+  bottom:23%;
+  width:min(40vw,570px);
+  gap:clamp(12px,1.7vh,20px);
+  justify-content:center;
+}
+.immersive .cave-side.left-side{left:1.8%;align-items:stretch}
+.immersive .cave-side.right-side{right:1.8%;align-items:stretch}
+.immersive .cave-card,
+.immersive .cave-card:nth-child(2),
+.immersive .cave-card:nth-child(3){
+  box-sizing:border-box;
+  flex:0 0 auto;
+  width:100%;
+  height:clamp(220px,31vh,292px);
+  min-height:0;
+  max-height:292px;
+  padding:clamp(18px,1.8vw,28px);
+  overflow:hidden;
+  position:relative;
+  isolation:isolate;
+  border:1px solid rgba(137,218,246,.43);
+  border-radius:2px;
+  border-image:none;
+  background:
+    linear-gradient(135deg,rgba(16,47,64,.48),rgba(3,12,22,.34) 55%,rgba(5,20,31,.48));
+  box-shadow:
+    0 0 24px rgba(77,190,232,.14),
+    0 0 68px rgba(77,190,232,.08),
+    inset 0 0 30px rgba(88,188,224,.10),
+    inset 0 1px rgba(220,248,255,.22);
+  backdrop-filter:blur(5px) saturate(1.28);
+  -webkit-backdrop-filter:blur(5px) saturate(1.28);
+  animation:hologram-hover 6.8s ease-in-out infinite;
+}
+.immersive .cave-card:nth-child(2){animation-delay:-2.1s}
+.immersive .cave-card:nth-child(3){animation-delay:-4.2s}
+.immersive .cave-card:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  width:auto;
+  border:0;
+  background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(148,222,247,.075) 6px,transparent 7px 10px);
+  opacity:.34;
+  box-shadow:none;
+  pointer-events:none;
+}
+.immersive .cave-card:after{
+  content:"";
+  position:absolute;
+  inset:8px;
+  z-index:0;
+  border:1px solid rgba(177,229,246,.15);
+  border-radius:1px;
+  opacity:1;
+  pointer-events:none;
+}
+.immersive .cave-card>*{position:relative;z-index:1}
+.immersive .cave-card h3{
+  font-size:clamp(22px,2vw,32px);
+  text-shadow:0 0 18px rgba(145,220,245,.25);
+}
+.immersive .cave-card p{
+  max-height:125px;
+  overflow:auto;
+  text-shadow:0 1px 8px rgba(0,0,0,.8);
+}
+.immersive .cave-card-media{
+  height:clamp(90px,13vh,124px);
+  flex:0 0 auto;
+  margin:-5px -5px 13px;
+  border:1px solid rgba(132,214,244,.34);
+  background:linear-gradient(135deg,rgba(23,65,82,.48),rgba(4,15,25,.34));
+  box-shadow:inset 0 0 28px rgba(87,193,228,.12),0 0 22px rgba(87,193,228,.08);
+}
+.immersive .cave-card-media img{object-fit:cover;filter:saturate(.82) contrast(1.06)}
+.immersive .cave-card .card-kicker{color:#a9e6f5;text-shadow:0 0 12px rgba(104,208,239,.38)}
+.immersive .cave-card .card-index{color:#a8d7e7;text-shadow:0 0 10px #70d7ff88}
+@keyframes hologram-hover{
+  0%,100%{translate:0 0}
+  50%{translate:0 -5px}
+}
+@media(max-width:900px){
+  .immersive .cave-side{width:41vw;top:20%;bottom:24%}
+  .immersive .cave-card,.immersive .cave-card:nth-child(2),.immersive .cave-card:nth-child(3){height:clamp(190px,29vh,250px);padding:15px}
+}
+@media(max-width:650px){
+  .immersive .cave-world{background-position:48% center}
+  .immersive .cave-side{top:25%;bottom:29%;width:44vw;gap:8px}
+  .immersive .cave-card,.immersive .cave-card:nth-child(2),.immersive .cave-card:nth-child(3){height:clamp(142px,22vh,180px);padding:9px;border-width:1px}
+  .immersive .cave-card h3{font-size:14px;margin:6px 0}
+  .immersive .cave-card p{font-size:8px;line-height:1.45;max-height:58px}
+  .immersive .cave-card-media{height:55px;margin:-2px -2px 7px}
+  .immersive .cave-card .card-kicker{font-size:5px;margin-bottom:5px}
+  .immersive .cave-card:after{inset:4px}
+}
+@media(prefers-reduced-motion:reduce){
+  .immersive .cave-card,.immersive .cave-card:nth-child(2),.immersive .cave-card:nth-child(3){animation:none!important}
+}
+
+/* Final pass: use the supplied cinematic cavern image and keep the cart/track low and narrow. */
+.immersive .cave-world{
+  background-color:#02060b;
+  background-image:
+    linear-gradient(90deg,rgba(1,4,8,.46) 0%,rgba(2,7,12,.04) 26%,rgba(2,7,12,.02) 74%,rgba(1,4,8,.42) 100%),
+    linear-gradient(0deg,rgba(1,4,8,.40) 0%,transparent 30%,rgba(1,4,8,.12) 100%),
+    url('/assets/cavern-expedition-bg.jpg');
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  filter:saturate(.88) contrast(1.06);
+}
+.immersive .cave-world:after{display:none!important}
+.immersive .cave-world:before{
+  background:
+    radial-gradient(ellipse at 50% 48%,transparent 0 24%,rgba(1,4,8,.08) 58%,rgba(1,4,8,.50) 100%),
+    linear-gradient(90deg,rgba(1,4,8,.14),transparent 22%,transparent 78%,rgba(1,4,8,.14));
+}
+
+/* The rails sit on the photographed cave floor and occupy only the central strip. */
+.immersive .mine-track-bed{
+  left:42%;
+  right:42%;
+  top:49%;
+  bottom:-24%;
+  transform:perspective(560px) rotateX(69deg);
+  transform-origin:50% 0%;
+  background:linear-gradient(90deg,#03070b 0%,#101a20 18%,#202a2e 50%,#101a20 82%,#03070b 100%);
+  box-shadow:0 0 24px rgba(0,0,0,.8),inset 0 0 24px rgba(0,0,0,.85);
+}
+.immersive .track-rail{
+  width:4%;
+  background:linear-gradient(90deg,#10171b,#aeb4b1 36%,#596268 58%,#0b1115);
+  box-shadow:0 0 7px rgba(180,205,214,.18);
+}
+.immersive .track-rail-left{left:10%}
+.immersive .track-rail-right{right:10%}
+.immersive .mine-track-bed:before{
+  background:repeating-linear-gradient(180deg,transparent 0 38px,#684b34 39px 47px,#171412 48px 51px,transparent 52px 79px);
+  opacity:.82;
+}
+.immersive .mine-track-bed:after{
+  background:linear-gradient(90deg,transparent 0 8%,#0007 9%,transparent 18%,transparent 82%,#0007 91%,transparent 92%);
+}
+
+/* Keep the first-person cart as a smaller foreground detail, not a full-width barrier. */
+.immersive .first-person-cart{
+  left:19%;
+  right:auto;
+  width:62%;
+  height:16%;
+  bottom:-1%;
+  transform-origin:50% 100%;
+}
+.immersive.is-moving .first-person-cart{animation:cart-travel .38s ease-in-out infinite alternate}
+
+@media(max-width:900px){
+  .immersive .mine-track-bed{left:40%;right:40%;top:50%;bottom:-22%}
+  .immersive .first-person-cart{left:15%;width:70%;height:15%}
+}
+@media(max-width:650px){
+  .immersive .cave-world{background-position:center center}
+  .immersive .mine-track-bed{left:39%;right:39%;top:51%;bottom:-20%}
+  .immersive .track-rail-left{left:10%}
+  .immersive .track-rail-right{right:10%}
+  .immersive .first-person-cart{left:8%;width:84%;height:12%;bottom:0}
+}
+
+
+/* FINAL EXPERIENCE: first-person crystal cavern, no minecart or railway. */
+.immersive .cave-world{
+  position:absolute;inset:-3.5%;
+  z-index:0;
+  background-color:#02060b;
+  background-image:
+    linear-gradient(90deg,rgba(1,4,8,.36),rgba(2,7,12,.02) 25%,rgba(2,7,12,.02) 75%,rgba(1,4,8,.32)),
+    linear-gradient(0deg,rgba(1,4,8,.32),transparent 34%,rgba(1,4,8,.14)),
+    url('/assets/crystal-cavern-final.png');
+  background-size:cover;
+  background-position:center 54%;
+  background-repeat:no-repeat;
+  transform:translate3d(calc(var(--turn-x,0deg)*-.42),calc(var(--turn-y,0deg)*-.28),0) scale(1.045);
+  transition:transform .38s cubic-bezier(.2,.7,.2,1),background-position .38s ease;
+  will-change:transform,background-position;
+  filter:saturate(.96) contrast(1.05);
+}
+.immersive .cave-world:before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(ellipse at 50% 47%,transparent 0 25%,rgba(1,4,8,.14) 58%,rgba(1,4,8,.62) 100%);
+}
+.immersive .cave-world:after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:linear-gradient(180deg,rgba(1,5,10,.12),transparent 30%,rgba(1,5,10,.18));
+}
+.immersive .cave-ceiling,.immersive .cave-wall,.immersive .cave-floor,
+.immersive .cave-tunnel,.immersive .mine-track-bed,.immersive .minecart-nose,
+.immersive .cave-rock,.immersive .track-rail,.immersive .track-sleeper,
+.immersive .cave-light-core,.immersive .cave-light-halo,.immersive .cave-vanishing-point,
+.immersive .first-person-cart{display:none!important}
+.immersive .cave-dust{z-index:4;background:#b8e7fa;box-shadow:0 0 8px #7bc9f4;opacity:.24;animation:dust-drift 12s ease-in-out infinite alternate}
+.immersive .cave-atmosphere{position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse at 50% 43%,rgba(85,164,220,.10),transparent 38%);animation:crystal-breathe 7s ease-in-out infinite}
+@keyframes dust-drift{from{transform:translate3d(-8px,8px,0);opacity:.10}to{transform:translate3d(12px,-18px,0);opacity:.34}}
+@keyframes crystal-breathe{0%,100%{opacity:.55}50%{opacity:1}}
+.immersive.is-moving .cave-world{animation:cave-run .48s ease-in-out infinite alternate}
+@keyframes cave-run{from{translate:0 1px;scale:1.045}to{translate:0 -2px;scale:1.065}}
+.immersive:after{content:"";position:absolute;inset:0;z-index:7;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 45%,rgba(0,3,8,.24) 100%);animation:breath 5.2s ease-in-out infinite}
+@keyframes breath{0%,100%{opacity:.18}50%{opacity:.27}}
+.immersive.is-moving:after{animation:run-breath .52s ease-in-out infinite alternate}
+@keyframes run-breath{from{opacity:.18;transform:translateY(1px)}to{opacity:.29;transform:translateY(-2px)}}
+
+/* Holograms occupy both sides while preserving the central uphill passage. */
+.immersive .cave-content-plane{
+  position:absolute;inset:0;z-index:8;
+  perspective:1250px;transform-style:preserve-3d;
+  transform-origin:50% 50%;
+  transition:transform .22s ease-out;
+  pointer-events:none;
+}
+.immersive .cave-side{
+  position:absolute;top:18%;bottom:22%;width:min(37vw,560px);
+  display:flex;flex-direction:column;justify-content:center;gap:clamp(14px,2vh,24px);
+  transform-style:preserve-3d;pointer-events:none;
+}
+.immersive .cave-side.left-side{left:2.2%;align-items:stretch}
+.immersive .cave-side.right-side{right:2.2%;align-items:stretch}
+.immersive .cave-card,.immersive .cave-card:nth-child(2),.immersive .cave-card:nth-child(3){
+  width:100%;height:clamp(230px,32vh,310px);min-height:0;max-height:310px;flex:0 0 auto;
+  padding:clamp(19px,2vw,30px);box-sizing:border-box;overflow:hidden;
+  border:1px solid rgba(132,222,250,.58);border-radius:3px;
+  background:linear-gradient(135deg,rgba(11,49,68,.76),rgba(3,17,30,.66) 58%,rgba(6,30,45,.72));
+  box-shadow:0 0 24px rgba(79,199,240,.24),0 0 75px rgba(60,164,220,.13),inset 0 0 34px rgba(105,216,246,.16),inset 0 1px rgba(226,249,255,.35);
+  backdrop-filter:blur(8px) saturate(1.4);-webkit-backdrop-filter:blur(8px) saturate(1.4);
+  transform-style:preserve-3d;pointer-events:auto;
+}
+.immersive .cave-card.left{transform-origin:100% 50%}
+.immersive .cave-card.right{transform-origin:0% 50%}
+.immersive .cave-card:before{
+  content:"";position:absolute;inset:0;border:0;
+  background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(170,235,255,.075) 6px,transparent 7px 11px),
+             linear-gradient(115deg,rgba(125,224,255,.12),transparent 42%,rgba(125,224,255,.05));
+  opacity:.65;pointer-events:none;
+}
+.immersive .cave-card:after{content:"";position:absolute;inset:8px;border:1px solid rgba(169,232,250,.20);pointer-events:none}
+.immersive .cave-card>*{position:relative;z-index:1}
+.immersive .cave-card h3{font-size:clamp(24px,2.2vw,35px);line-height:1.12;color:#effaff;text-shadow:0 0 18px rgba(137,226,255,.34)}
+.immersive .cave-card p{font-size:clamp(12px,1vw,15px);line-height:1.7;color:#d2e4eb;max-height:145px;overflow:auto}
+.immersive .cave-card .card-kicker{color:#9be9ff;text-shadow:0 0 13px rgba(92,216,255,.48)}
+.immersive .cave-card-media{height:clamp(100px,14vh,135px);margin:-5px -5px 14px;border:1px solid rgba(128,221,250,.44);background:rgba(28,93,120,.24);box-shadow:inset 0 0 30px rgba(100,210,255,.16)}
+.immersive .cave-card .card-index{color:#b4eaff}
+.distant-holograms{position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none;z-index:1}
+.distant-holo{position:absolute;top:var(--d-y);width:clamp(95px,14vw,205px);height:clamp(55px,9vh,95px);padding:9px 12px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:5px;border:1px solid rgba(112,207,241,.25);background:rgba(4,29,45,.32);box-shadow:0 0 24px rgba(76,183,226,.12),inset 0 0 18px rgba(98,200,235,.10);backdrop-filter:blur(2px);opacity:.26;filter:blur(1.4px);transform:translateZ(-650px) scale(.48) rotateY(var(--far-yaw,0deg));}
+.distant-holo span{font:8px ui-monospace,monospace;letter-spacing:.16em;color:#8fdcf3}
+.distant-holo b{font:clamp(9px,1vw,13px) Georgia,serif;color:#d9edf5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.distant-left{left:17%;--far-yaw:12deg;transform-origin:right center}
+.distant-right{right:17%;--far-yaw:-12deg;transform-origin:left center}
+.immersive.is-moving .distant-holo{animation:far-holo-approach 1.35s cubic-bezier(.18,.72,.22,1) both}
+@keyframes far-holo-approach{0%{opacity:.08;transform:translateZ(-1100px) scale(.12)}65%{opacity:.48}100%{opacity:.25;transform:translateZ(-650px) scale(.48)}}
+.immersive.is-moving .cave-card{filter:drop-shadow(0 0 16px rgba(94,209,247,.18))}
+@media(max-width:900px){
+ .immersive .cave-side{width:40vw;top:21%;bottom:24%}
+ .immersive .cave-card,.immersive .cave-card:nth-child(2),.immersive .cave-card:nth-child(3){height:clamp(185px,28vh,245px);padding:15px}
+}
+@media(max-width:650px){
+ .immersive .cave-world{background-position:50% center}
+ .immersive .cave-side{top:26%;bottom:29%;width:44vw;gap:8px}
+ .immersive .cave-card,.immersive .cave-card:nth-child(2),.immersive .cave-card:nth-child(3){height:clamp(145px,22vh,185px);padding:10px}
+ .immersive .cave-card h3{font-size:15px;margin:6px 0}
+ .immersive .cave-card p{font-size:9px;line-height:1.45;max-height:62px}
+ .immersive .cave-card-media{height:58px;margin:-2px -2px 7px}
+ .distant-holo{width:80px;height:45px;padding:5px;opacity:.16}
+ .distant-left{left:12%}.distant-right{right:12%}
+}
+@media(prefers-reduced-motion:reduce){
+ .immersive:after,.immersive .cave-world,.immersive .cave-atmosphere,.immersive .cave-dust,.immersive.is-moving .distant-holo{animation:none!important;transition:none!important}
+}
+
+.immersive.is-moving .cave-world{animation:cave-forward-pull 1.05s cubic-bezier(.18,.72,.22,1) both, cave-run .48s ease-in-out infinite alternate}
+@keyframes cave-forward-pull{
+  0%{transform:scale(1.045);background-position:calc(50% + var(--look-x,0px)) calc(54% + var(--look-y,0px))}
+  55%{transform:scale(1.13);background-position:calc(50% + var(--look-x,0px)) 58%}
+  100%{transform:scale(1.07);background-position:calc(50% + var(--look-x,0px)) 55%}
+}
+.immersive.is-moving.moving-backward .cave-world{animation:cave-back-pull 1.05s cubic-bezier(.18,.72,.22,1) both, cave-run .48s ease-in-out infinite alternate}
+@keyframes cave-back-pull{
+  0%{transform:scale(1.07)}
+  55%{transform:scale(1.015)}
+  100%{transform:scale(1.045)}
+}
+
+/* Keep the hologram layer moving toward the viewer during forward travel. */
+.immersive.is-moving .cave-content-plane{
+  transform:translate3d(calc(var(--turn-x,0deg) * -1),0,70px) scale(1.08) rotateY(calc(var(--turn-x,0deg) * -.35))!important;
+  opacity:1;
+  transition:transform 1.05s cubic-bezier(.18,.72,.22,1),opacity .3s;
+}
+.immersive.moving-backward .cave-content-plane{
+  transform:translateZ(-65px) scale(.94)!important;
+}
+.immersive .cave-title-float{
+  top:14%;
+  width:min(22vw,250px);
+  opacity:.86;
+}
+.immersive .cave-title-float h1{font-size:clamp(18px,1.7vw,25px)}
+.immersive .cave-title-float p{font-size:10px}
+@media(max-width:650px){
+  .immersive .cave-title-float{top:18%;width:28vw}
+  .immersive .cave-title-float h1{font-size:15px}
+}
+
+
+/* 360-degree world-space camera: cave and holograms rotate as one environment. */
+.immersive{perspective:none;overflow:hidden;--camera-yaw:var(--turn-x,0deg);--camera-pitch:var(--turn-y,0deg)}
+.immersive .camera-world{
+  position:absolute;inset:0;z-index:0;perspective:1200px;perspective-origin:50% 48%;
+  transform-style:preserve-3d;transform-origin:50% 50%;
+  transform:rotateX(calc(var(--camera-pitch) * .42)) rotateY(var(--camera-yaw));
+  transition:transform .32s cubic-bezier(.2,.7,.2,1);will-change:transform;
+}
+.immersive .cave-world{
+  position:absolute;left:-42%;top:-12%;width:184%;height:124%;inset:auto;z-index:0;
+  transform:translateZ(-1050px) scale(2.08)!important;transform-origin:50% 50%;
+  background-position:center 54%;transition:filter .5s ease;
+}
+.immersive .cave-content-plane{
+  position:absolute;inset:0;z-index:8;overflow:visible;pointer-events:none;
+  transform-style:preserve-3d;transform:translateZ(0)!important;
+  perspective:none;transition:opacity .4s ease;
+}
+.immersive .cave-side{
+  position:absolute;top:50%;bottom:auto;left:50%;right:auto;
+  width:min(39vw,560px);height:auto;max-height:64vh;
+  display:flex;flex-direction:column;justify-content:center;gap:clamp(14px,2vh,22px);
+  transform-style:preserve-3d;pointer-events:none;
+}
+.immersive .cave-side.left-side{
+  transform:translate3d(calc(-50% - min(19.5vw,280px) - clamp(115px,13vw,190px)),-50%,-930px) rotateY(31deg);
+  transform-origin:100% 50%;align-items:stretch;
+}
+.immersive .cave-side.right-side{
+  transform:translate3d(calc(-50% + min(19.5vw,280px) + clamp(115px,13vw,190px)),-50%,-930px) rotateY(-31deg);
+  transform-origin:0% 50%;align-items:stretch;
+}
+.immersive .cave-card,.immersive .cave-card:nth-child(2),.immersive .cave-card:nth-child(3){
+  width:100%;height:clamp(220px,31vh,292px);min-height:0;max-height:292px;
+  flex:0 0 auto;pointer-events:auto;backface-visibility:hidden;
+}
+.immersive .cave-card.left{transform-origin:center center}
+.immersive .cave-card.right{transform-origin:center center}
+.immersive .distant-holograms{position:absolute;inset:0;transform-style:preserve-3d;pointer-events:none;z-index:1}
+.immersive .distant-holo{
+  top:50%;left:50%;right:auto;width:clamp(115px,15vw,210px);height:clamp(62px,9vh,100px);
+  transform-style:preserve-3d;backface-visibility:hidden;
+}
+.immersive .distant-left{transform:translate3d(-390px,-50%,-1750px) rotateY(22deg) scale(.7);transform-origin:right center}
+.immersive .distant-right{transform:translate3d(390px,-50%,-1750px) rotateY(-22deg) scale(.7);transform-origin:left center}
+.immersive.is-moving .camera-world{transition:transform 1.05s cubic-bezier(.18,.72,.22,1)}
+.immersive.is-moving .cave-world{filter:brightness(1.12) saturate(1.08)}
+.immersive.is-moving .cave-content-plane{opacity:.94}
+@media(max-width:900px){
+ .immersive .cave-side{width:42vw}
+ .immersive .cave-side.left-side{transform:translate3d(calc(-50% - 21vw - 9vw),-50%,-820px) rotateY(27deg)}
+ .immersive .cave-side.right-side{transform:translate3d(calc(-50% + 21vw + 9vw),-50%,-820px) rotateY(-27deg)}
+}
+@media(max-width:650px){
+ .immersive .camera-world{perspective:900px}
+ .immersive .cave-world{left:-85%;width:270%;transform:translateZ(-850px) scale(2.5)!important}
+ .immersive .cave-side{width:76vw;max-height:60vh}
+ .immersive .cave-side.left-side{transform:translate3d(calc(-50% - 38vw - 8vw),-50%,-700px) rotateY(20deg)}
+ .immersive .cave-side.right-side{transform:translate3d(calc(-50% + 38vw + 8vw),-50%,-700px) rotateY(-20deg)}
+ .immersive .cave-card,.immersive .cave-card:nth-child(2),.immersive .cave-card:nth-child(3){height:clamp(150px,23vh,190px);padding:12px}
+ .immersive .distant-left{transform:translate3d(-220px,-50%,-1450px) rotateY(20deg) scale(.55)}
+ .immersive .distant-right{transform:translate3d(90px,-50%,-1450px) rotateY(-20deg) scale(.55)}
+}
+@media(prefers-reduced-motion:reduce){.immersive .camera-world{transition:none!important}}
+
+.immersive.is-moving .cave-content-plane,
+.immersive.moving-backward .cave-content-plane{transform:translateZ(0)!important}
+.immersive.is-moving .camera-world{animation:camera-forward-rush 1.05s cubic-bezier(.18,.72,.22,1) both}
+.immersive.moving-backward .camera-world{animation:camera-back-rush 1.05s cubic-bezier(.18,.72,.22,1) both}
+@keyframes camera-forward-rush{0%{scale:1}45%{scale:1.035}100%{scale:1}}
+@keyframes camera-back-rush{0%{scale:1}45%{scale:.975}100%{scale:1}}
+@media(prefers-reduced-motion:reduce){.immersive.is-moving .camera-world,.immersive.moving-backward .camera-world{animation:none!important}}
+
+
+/* FINAL MASTER SCENE: the camera and exhibits are rendered in one Three.js world. */
+.immersive{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:#02060b;
+}
+.immersive .cavern-scene{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  background:#02060b url('/assets/crystal-cavern-endless.png') center 52% / cover no-repeat;
+}
+.immersive .cavern-webgl{
+  display:block;
+  width:100%;
+  height:100%;
+  outline:none;
+}
+.immersive .webgl-fallback{
+  display:none;
+  position:absolute;
+  inset:0;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+  color:#d7e8ee;
+  text-align:center;
+  font:12px 'DM Mono',monospace;
+  background:linear-gradient(180deg,rgba(2,6,11,.2),rgba(2,6,11,.5)),url('/assets/crystal-cavern-endless.png') center/cover;
+}
+.immersive .cavern-scene[data-webgl="unavailable"] .webgl-fallback{display:flex}
+
+/* Separate HUD rows: no absolute title competing with the chamber counter. */
+.immersive .journey-top{
+  top:88px;
+  left:5vw;
+  right:5vw;
+  min-height:46px;
+  display:grid;
+  grid-template-columns:minmax(130px,1fr) auto minmax(240px,1fr);
+  align-items:center;
+  gap:18px;
+  z-index:32;
+  pointer-events:none;
+}
+.immersive .journey-top > *{pointer-events:auto}
+.immersive .journey-top > .quiet-button{justify-self:start}
+.immersive .chamber-count{
+  grid-column:2;
+  grid-row:1;
+  white-space:nowrap;
+  text-align:center;
+  line-height:1.5;
+  padding:8px 16px;
+  background:rgba(3,9,15,.58);
+  border:1px solid rgba(178,218,236,.12);
+  backdrop-filter:blur(8px);
+}
+.immersive .chapter-select{
+  grid-column:3;
+  grid-row:1;
+  justify-self:end;
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+.immersive .cave-title-float{
+  position:absolute;
+  z-index:22;
+  top:151px;
+  left:50%;
+  width:min(560px,46vw);
+  min-height:76px;
+  padding:9px 20px 12px;
+  transform:translateX(-50%);
+  text-align:center;
+  background:linear-gradient(180deg,rgba(2,8,14,.76),rgba(2,8,14,.30) 75%,transparent);
+  border-top:1px solid rgba(159,219,243,.12);
+  pointer-events:none;
+}
+.immersive .cave-title-float .eyebrow{
+  justify-content:center;
+  margin:0 0 5px;
+  font-size:7px;
+  letter-spacing:.22em;
+}
+.immersive .cave-title-float h1{
+  margin:0 0 4px;
+  font-size:clamp(20px,2vw,28px);
+  line-height:1.12;
+  letter-spacing:-.02em;
+}
+.immersive .cave-title-float p{
+  margin:0;
+  font-size:11px;
+  line-height:1.35;
+}
+.immersive .journey-bottom{
+  z-index:34;
+  bottom:18px;
+}
+.immersive .mouse-hint{z-index:30}
+.immersive .notes-drawer{z-index:50}
+.immersive .chapter-menu{z-index:55}
+
+/* Keep the title clear of the world-space exhibits and the navigation HUD. */
+@media(max-width:900px){
+  .immersive .journey-top{
+    left:3vw;right:3vw;
+    grid-template-columns:minmax(95px,1fr) auto minmax(190px,1fr);
+    gap:8px;
+  }
+  .immersive .chamber-count{padding:7px 9px;font-size:8px}
+  .immersive .cave-title-float{top:145px;width:min(520px,58vw)}
+}
+@media(max-width:650px){
+  .immersive{height:calc(100svh - 45px);min-height:720px}
+  .immersive .journey-top{
+    top:77px;left:12px;right:12px;
+    min-height:42px;
+    grid-template-columns:auto 1fr auto;
+    gap:5px;
+  }
+  .immersive .journey-top > .quiet-button{padding:8px 9px}
+  .immersive .chamber-count{
+    grid-column:2;
+    font-size:6px;
+    padding:6px 4px;
+    max-width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .immersive .chamber-count b{font-size:13px}
+  .immersive .chapter-select{grid-column:3;gap:4px}
+  .immersive .chapter-select .quiet-button{font-size:0;padding:8px}
+  .immersive .chapter-select .quiet-button svg{width:14px}
+  .immersive .cave-title-float{
+    top:132px;
+    width:min(88vw,430px);
+    min-height:65px;
+    padding:7px 10px 9px;
+  }
+  .immersive .cave-title-float h1{font-size:18px}
+  .immersive .cave-title-float p{font-size:9px}
+  .immersive .journey-bottom{bottom:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  .immersive .cavern-webgl{animation:none!important}
+}
+
+.immersive .cavern-scene{touch-action:none;}
+
+
+/* Static endless-cavern backdrop: forward travel is communicated by a restrained fade,
+   while the cave image itself never scales or translates. */
+.immersive .cavern-scene{
+  background:#02060b url('/assets/crystal-cavern-endless.png') center 52% / cover no-repeat;
+}
+.immersive .travel-fade{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  pointer-events:none;
+  opacity:0;
+  background:rgba(1,5,10,.52);
+}
+.immersive .cavern-scene.travel-forward .travel-fade{
+  animation:travel-screen-fade 1.35s cubic-bezier(.2,.7,.2,1) both;
+}
+.immersive .cavern-scene.travel-backward .travel-fade{
+  animation:travel-screen-fade 1.15s cubic-bezier(.2,.7,.2,1) reverse both;
+}
+@keyframes travel-screen-fade{
+  0%{opacity:0}
+  38%{opacity:.42}
+  68%{opacity:.28}
+  100%{opacity:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .immersive .travel-fade{animation:none!important}
+}
+
+
+/* Forward travel cue: one restrained whole-scene push-in and return, paired with a soft fade. */
+.immersive.is-moving{
+  transform-origin:50% 50%;
+  animation:journey-forward-pulse 1.45s cubic-bezier(.2,.72,.22,1) both;
+  will-change:transform,filter;
+}
+.immersive.is-moving::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:35;
+  pointer-events:none;
+  background:rgba(1,7,13,.52);
+  opacity:0;
+  animation:journey-travel-fade 1.45s ease-in-out both;
+}
+@keyframes journey-forward-pulse{
+  0%{transform:scale(1);filter:brightness(1)}
+  32%{transform:scale(1.055);filter:brightness(1.12)}
+  62%{transform:scale(1.035);filter:brightness(.96)}
+  100%{transform:scale(1);filter:brightness(1)}
+}
+@keyframes journey-travel-fade{
+  0%{opacity:0}
+  30%{opacity:.32}
+  58%{opacity:.18}
+  100%{opacity:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .immersive.is-moving{animation:none!important}
+  .immersive.is-moving::after{animation:none!important;opacity:0!important}
+}
+
+
+/* Final movement tuning: keep the interface and cave image fixed; the Three.js camera
+   supplies the gentle footfall motion while the exhibits use one coordinated timeline. */
+.immersive.is-moving{
+  transform:none!important;
+  animation:none!important;
+  filter:none!important;
+  will-change:auto!important;
+}
+.immersive.is-moving::after{
+  animation:none!important;
+  opacity:0!important;
+  background:transparent!important;
+}
+.immersive.is-moving .cave-world{
+  animation:none!important;
+  transform:none!important;
+  filter:none!important;
+}
+.immersive.is-moving .cave-content-plane{
+  animation:none!important;
+  transform:none!important;
+  transition:none!important;
+}
+.immersive.is-moving .camera-world{
+  animation:none!important;
+  transform:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .immersive.is-moving,
+  .immersive.is-moving::after,
+  .immersive.is-moving .cave-world,
+  .immersive.is-moving .camera-world{
+    animation:none!important;
+    transition:none!important;
+  }
+}
+
+
+.evidence-image{min-height:0;overflow:hidden;align-items:stretch;gap:8px;padding:10px}
+.evidence-image img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain;object-position:center;background:#050b12;border:1px solid #ffffff18}
+.evidence-image b{font:15px 'Playfair Display';font-weight:500}
+.evidence-image small{font:8px 'DM Mono';letter-spacing:.16em;color:var(--gold)}
+.empty-evidence{font-size:12px;color:#9eafb7;line-height:1.7;padding:18px;border:1px dashed #68808b55}
+.resources{margin:28px 0}
+.resource-list{display:grid;gap:9px}
+.resource-item{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:15px 17px;background:#0d1a25;border:1px solid #ffffff17}
+.resource-item>div{display:grid;gap:7px;min-width:0}
+.resource-item b{font-size:13px;font-weight:500;color:#e5edf0}
+.resource-item a{display:flex;align-items:center;gap:7px;white-space:nowrap;color:var(--gold);font:9px 'DM Mono';letter-spacing:.1em;text-decoration:none}
+.resource-item audio{width:min(420px,100%);height:34px}
+.image-viewer{max-width:min(1000px,94vw);max-height:92vh;overflow:auto}
+.image-viewer img{display:block;max-width:100%;max-height:68vh;object-fit:contain;margin:0 auto;background:#050b12}
+.image-viewer h3{margin:15px 0 5px}
+@media(max-width:620px){.resource-item{align-items:flex-start;flex-direction:column}.evidence-image img{height:150px}}
+
+/* Warm gold glass finish for the chamber exhibits */
+.cave-zoom-control{position:absolute;z-index:30;right:22px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;padding:13px 9px;border:1px solid rgba(232,193,119,.5);border-radius:18px;background:linear-gradient(160deg,rgba(39,29,15,.88),rgba(7,10,13,.88));box-shadow:0 8px 30px rgba(0,0,0,.45),inset 0 0 18px rgba(231,190,111,.08);backdrop-filter:blur(12px);color:#f0d49b}
+.cave-zoom-control span,.cave-zoom-control small{font:8px 'DM Mono',monospace;letter-spacing:.14em;color:#e9ca8c}
+.cave-zoom-control input{appearance:none;-webkit-appearance:none;writing-mode:vertical-lr;direction:rtl;width:5px;height:clamp(100px,22vh,190px);border-radius:8px;background:linear-gradient(to bottom,#f0d49b,#87612c);outline:none;cursor:pointer}
+.cave-zoom-control input::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:#fff0c9;border:2px solid #b58a49;box-shadow:0 0 12px #f0d49b}
+.cave-zoom-control input::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:#fff0c9;border:2px solid #b58a49;box-shadow:0 0 12px #f0d49b}
+@media(max-width:700px){.cave-zoom-control{right:8px;padding:9px 6px}.cave-zoom-control input{height:100px}}
