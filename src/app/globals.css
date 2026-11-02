@@ -853,3 +853,27 @@
 .cave-zoom-control input::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;border-radius:50%;background:#fff0c9;border:2px solid #b58a49;box-shadow:0 0 12px #f0d49b}
 .cave-zoom-control input::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:#fff0c9;border:2px solid #b58a49;box-shadow:0 0 12px #f0d49b}
 @media(max-width:700px){.cave-zoom-control{right:8px;padding:9px 6px}.cave-zoom-control input{height:100px}}
+
+
+.project-writeup-section{
+  width:min(1320px,calc(100% - 64px));margin:90px auto 110px;padding:42px;
+  display:grid;grid-template-columns:minmax(280px,.78fr) minmax(420px,1.22fr);gap:38px;
+  border:1px solid rgba(211,174,105,.32);border-radius:18px;
+  background:linear-gradient(135deg,rgba(22,27,30,.94),rgba(13,19,24,.96));
+  box-shadow:0 22px 70px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.04);
+}
+.writeup-intro{align-self:start;padding:18px 8px}
+.writeup-intro h2{font-family:Georgia,serif;font-size:clamp(28px,3vw,43px);line-height:1.13;color:#f3e7cc;margin:18px 0}
+.writeup-intro h2 em{color:#d7b878;font-weight:400}
+.writeup-intro p{color:#c5c1b8;font-size:15px;line-height:1.85;margin:0 0 16px;max-width:560px}
+.writeup-facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.writeup-facts span{font-size:10px;letter-spacing:1.3px;color:#e2c88e;border:1px solid rgba(215,184,120,.3);background:rgba(215,184,120,.07);padding:8px 10px;border-radius:3px}
+.writeup-document{min-width:0;border:1px solid rgba(215,184,120,.28);border-radius:10px;overflow:hidden;background:#11171c}
+.writeup-document-head{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;color:#d8bd83;border-bottom:1px solid rgba(215,184,120,.18)}
+.writeup-document-head h3{font-family:Georgia,serif;color:#f1e6d0;font-size:20px;margin:7px 0 4px}
+.writeup-document-head p{color:#9da3a5;font-size:12px;margin:0}
+.writeup-document iframe{display:block;width:100%;height:650px;border:0;background:#e9e6df}
+.writeup-document-actions{display:flex;gap:20px;flex-wrap:wrap;padding:16px 20px}
+.writeup-document-actions a{display:inline-flex;align-items:center;gap:8px;color:#dfc184;text-decoration:none;font-size:11px;letter-spacing:1.1px}
+.writeup-document-actions a:hover{color:#fff}
+@media(max-width:850px){.project-writeup-section{width:calc(100% - 28px);padding:22px;grid-template-columns:1fr;gap:18px;margin:54px auto 70px}.writeup-document iframe{height:520px}}
